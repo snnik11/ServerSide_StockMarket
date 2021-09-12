@@ -5,8 +5,8 @@ const Stockmarket = function(data) {
 
 Stockmarket.prototype.validateUserInput = function() {
     if(this.data =='') {
-        this.errors.push("Please enter symbol")
-    }
+        this.errors.push("The field cannot be empty. Please enter a symbol")
+    } 
 }
 
 module.exports = Stockmarket;
