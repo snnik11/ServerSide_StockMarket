@@ -18,21 +18,21 @@
    <span class="navbar-toggler-icon"></span>
     </button>
      <div class="collapse navbar-collapse">
-         <ul class="navbar-nav" style=" font: size 20px;"> 
+         <ul class="navbar-nav" style=" font: size 20px;">
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nab-item">
+            <li class="nav-item">
                     <a class="nav-link" href="/profile">Profile</a>
             </li>
-            <li class="nab-item">
-                    <a class="nav-link" href="/newsentiment">News Sentiment</a>
+            <li class="nav-item">
+                    <a class="nav-link" href="/news">News Sentiment</a>
             </li>
          </ul>
      </div>
      </nav>
      <div class="container">
-         <div class="row"> 
+         <div class="row">
          <div class="col-lg-14 text-center main">
              <div>
                  <h1>Your mini investment guide</h1>
@@ -44,31 +44,45 @@
      </div>
      <div class="mt-3">
          {{!-- add the variables that needs to be called --}}
-         <table>
-           <tr>
-             <th>Company</th><td>{{company}} {{error}}</td> </tr>
-             <tr> <th>Symbol</th> <td> {{symbol}}  </td>
+         {{!-- <table border="1">
+              <tr> <th>Company</th><td>{{company}} {{error}}</td> </tr>
+             <tr> <th>Symbol</th> <td> {{symbol}} </td>
              </tr>
               <tr> <th>Price</th><td>  {{price}}   </td></tr>
                <tr><th>Sector</th><td> {{sector}} </td></tr>
                  <tr> <th>Description</th> <td>{{description}} </td>
+
            </tr>
            <tr> </tr>
              <tr></tr>
               <tr></tr>
                <tr></tr>
-         </table>
+         </table> --}}
+        
    {{!-- for loop --}}
- 
-  
+
+
      </div>
+     <div class='know-more'>
+      {{!-- <a href="/"></a> --}}
+      <button onclick="myFunction()">Know more..</button> {{sector}}
+      <p> {{f}}</p>
+     </div>
+     {{!-- <div>
+       <button onclick="getProfile()"></button>
+     </div> --}}
      </div>
        </div>
        </div>
      </div>
+     <div id="demo"></div>
    <script>
-     function btnColorShade() {
+     {{!-- function btnColorShade() {
        document.getElementById("btn").style.backgroundColor = "Green";
+     } --}}
+     document.getElementById("demo").addEventListener("click", myFunction)
+     function myFunction() {
+       document.getElementById("demo").innerHTML="{{exchange}}"
      }
    </script>
     </body>

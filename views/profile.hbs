@@ -22,10 +22,10 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nab-item">
+            <li class="nav-item">
                     <a class="nav-link" href="/profile">Profile</a>
-            </li>   <li class="nab-item">
-                    <a class="nav-link" href="/newssentiment">News Sentiment</a>
+            </li>   <li class="nav-item">
+                    <a class="nav-link" href="/news">News Sentiment</a>
             </li>
          </ul>
      </div>
@@ -45,12 +45,27 @@
          <button>Submit</button>
          </form>
          
-     <div class="mt-3">
+     {{!-- <div class="mt-3">
        {{!-- {{company_quote}} {{error}} --}}
          {{!-- add the variables that needs to be called --}}
-    {{symbol}} {{error}}
+  {{!-- {{company}}  {{symbol}} {{price}}  {{exchange}} {{error}}
+     </div> --}} 
      </div>
-     </div>
+      <table border="1">
+           <tr><th>Exchange</th> <td> {{exchange}}</td> </tr>
+             <tr> <th>Company</th><td>{{company}} {{error}}</td> </tr>
+             <tr> <th>Symbol</th> <td> {{exchange}} </td>
+             </tr>
+              <tr> <th>Price</th><td>  {{price}}   </td></tr>
+               
+               
+
+           </tr>
+           <tr> </tr>
+             <tr></tr>
+              <tr></tr>
+               <tr></tr>
+         </table>
        </div>
      </div>
    <script src="" async defer></script>
