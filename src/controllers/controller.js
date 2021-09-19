@@ -10,7 +10,17 @@ exports.renderHomePage = (req,res) => {
 }
 
 exports.getStock = async (req, res) => {
-    res.render("index"); 
+    
+    const url = `https://financialmodelingprep.com/api/v3/nasdaq_constituent?apikey=${api_key}`
+  axios.get(url).then((res)=> {
+      console.log(res)
+      res.render("index", {
+         result:  res.data
+      }); 
+  }).catch((err)=> {
+      console.log(err)
+  })
+   
 }
 
 
@@ -22,36 +32,3 @@ exports.renderNewsPage = (req,res) => {
 }
 
 
-exports.getProfile = (req, res) => {
-    const comp_symbol = req.body.comp_symbol;
-   // console.log(req.body)
-    const url = `https://financialmodelingprep.com/api/v3/quote/${comp_symbol}?apikey=${api_key}`
-    const second_url = `https://finnhub.io/api/v1/news-sentiment?symbol=${comp_symbol}&token=${news_key}`
- // console.log(url)
- //  const obj3 = 
-    const company = new Stockmarket(req.body.comp_symbol);
-    company.inputCheck();
-
-    if(company.errors.length) {
-        res.render("profile", {
-            error: company.errors.toString()
-        })
-    }
-    //compare url responses
-    else {
-        axios.get(url)
-        .then((response) => {
-     //  console.log(response)
-      res.render("profile", {
-                company: ` ${response.data[0].name}`,
-               symbol: ` ${comp_symbol}` , 
-               price : `${response.data[0].price} ` ,
-               exchange: `${response.data[0].exchange}`
-               
-       }) 
-    })
-        .catch((error) => {
-            console.log(error)
-          })
-    }
-}
